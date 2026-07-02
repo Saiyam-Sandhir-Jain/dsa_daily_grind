@@ -44,6 +44,10 @@ public class Main {
 
         int[] arr8 = {1, 2, 3, 5};
         int val5 = FindElementsInAnArray.findMissingNumber(arr8);
-        System.out.println(val5);
+        // System.out.println(val5);
+
+        int[] arr9 = {2, 2, 1};
+        int val6 = FindElementsInAnArray.findTheNumberThatAppearsOnce(arr9);
+        System.out.println(val6);
     }
 }
