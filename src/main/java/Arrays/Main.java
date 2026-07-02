@@ -32,7 +32,13 @@ public class Main {
         int[] arr6 = {1, 2, 3, 4, 5, 6};
         int k = 2;
         FindElementsInAnArray.rotateArrayByKElements(arr6, k);
-        for (int x : arr6) {
+        // for (int x : arr6) {
+        //     System.out.println(x);
+        // }
+
+        int[] arr7 = {1, 0, 2, 3, 0, 4, 0, 1};
+        FindElementsInAnArray.moveAllZeroesToTheEndOfTheArray(arr7);
+        for (int x : arr7) {
             System.out.println(x);
         }
     }

@@ -75,5 +75,17 @@ public class FindElementsInAnArray {
             arr[i-k] = arr[i];
         } System.arraycopy(temp, 0, arr, arr.length-k, k);
     }
+
+    public static void moveAllZeroesToTheEndOfTheArray(int[] arr) {
+        int i = 0;
+        for (int j = 0; j < arr.length; ++j) {
+            if (arr[j] != 0) {
+                arr[i++] = arr[j];
+            }
+        }
+        for (; i < arr.length; ++i) {
+            arr[i] = 0;
+        }
+    }
 }
 
