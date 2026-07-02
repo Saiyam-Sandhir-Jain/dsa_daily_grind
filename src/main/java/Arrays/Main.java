@@ -25,7 +25,14 @@ public class Main {
 
         int[] arr5 = {-1, 0, 3, 6};
         FindElementsInAnArray.leftRotateTheArrayByOne(arr5);
-        for (int x : arr5) {
+        // for (int x : arr5) {
+        //     System.out.println(x);
+        // }
+
+        int[] arr6 = {1, 2, 3, 4, 5, 6};
+        int k = 2;
+        FindElementsInAnArray.rotateArrayByKElements(arr6, k);
+        for (int x : arr6) {
             System.out.println(x);
         }
     }

@@ -1,5 +1,7 @@
 package main.java.Arrays;
 
+import java.util.Arrays;
+
 public class FindElementsInAnArray {
     public static int getLargestElement(int[] arr) {
         int largestElement = Integer.MIN_VALUE;
@@ -64,6 +66,14 @@ public class FindElementsInAnArray {
         for (int i = 1; i < length; ++i) {
             arr[i-1] = arr[i];
         } arr[length-1] = temp;
+    }
+
+    public static void rotateArrayByKElements(int[] arr, int k) {
+        if (arr.length < k) return;
+        int[] temp = Arrays.copyOfRange(arr, 0, k);
+        for (int i = k; i < arr.length; ++i) {
+            arr[i-k] = arr[i];
+        } System.arraycopy(temp, 0, arr, arr.length-k, k);
     }
 }
 
