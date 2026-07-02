@@ -36,4 +36,34 @@ public class FindElementsInAnArray {
 
         return sMax;
     }
+
+    public static String checkIfAnArrayIsSorted(int[] arr) {
+        if (arr.length <= 1) return "Sorted";
+        for (int i = 0, j = 1; j < arr.length; ++i, ++j) {
+            if (arr[i] > arr[j]) return "Not Sorted";
+        } return "Sorted";
+    }
+
+    public static void removeDuplicatesInPlaceFromSortedArray(int[] arr) {
+        if (arr.length <= 1) {
+            System.out.printf("k = %d\n", arr.length);
+            return;
+        }
+        int i = 0;
+        for (int j = 1; j < arr.length; j++) {
+            if (arr[i] != arr[j]) {
+                arr[++i] = arr[j];
+            }
+        } System.out.printf("k = %d\n", (i+1));
+    }
+
+    public static void leftRotateTheArrayByOne(int[] arr) {
+        int length = arr.length;
+        if (length == 0) return;
+        int temp = arr[0];
+        for (int i = 1; i < length; ++i) {
+            arr[i-1] = arr[i];
+        } arr[length-1] = temp;
+    }
 }
+
