@@ -87,5 +87,15 @@ public class FindElementsInAnArray {
             arr[i] = 0;
         }
     }
+
+    public static int findMissingNumber(int[] arr) {
+        int length = arr.length;
+        int expectedSum = (length+1)*(length+2)/2;
+        int sum = 0;
+        for (int i = 0; i < length; ++i) {
+            sum += arr[i];
+        }
+        return expectedSum-sum;
+    }
 }
 

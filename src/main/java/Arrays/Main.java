@@ -38,8 +38,12 @@ public class Main {
 
         int[] arr7 = {1, 0, 2, 3, 0, 4, 0, 1};
         FindElementsInAnArray.moveAllZeroesToTheEndOfTheArray(arr7);
-        for (int x : arr7) {
-            System.out.println(x);
-        }
+        // for (int x : arr7) {
+        //     System.out.println(x);
+        // }
+
+        int[] arr8 = {1, 2, 3, 5};
+        int val5 = FindElementsInAnArray.findMissingNumber(arr8);
+        System.out.println(val5);
     }
 }
