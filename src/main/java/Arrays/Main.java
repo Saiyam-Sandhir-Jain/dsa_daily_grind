@@ -91,6 +91,9 @@ public class Main {
         // System.out.println(MediumLevel.findMajorityOccuringElement(arr17));
 
         int[] arr18 = {2, -3, 4, 5};
-        System.out.println(MediumLevel.kadanesAlgo(arr18));
+        // System.out.println(MediumLevel.kadanesAlgo(arr18));
+
+        int[] arr19 = {7, 6, 4, 3, 1};
+        MediumLevel.stockBuyAndSell(arr19);
     }
 }

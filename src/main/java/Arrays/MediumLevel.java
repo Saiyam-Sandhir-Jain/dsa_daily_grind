@@ -62,4 +62,44 @@ public class MediumLevel {
 
         return maxSum;
     }
+
+    public static void stockBuyAndSell(int[] arr) {
+        int buy = 0, sell = 0, profit = 0;
+        int bestBuy = buy, bestSell = sell, bestProfit = profit;
+        for (int i = 1; i < arr.length; ++i) {
+            if (buy == sell) {
+                if (arr[i] < arr[buy]) {
+                    buy = sell = i;
+                    profit = 0;
+                } else if (arr[i] > arr[buy]) {
+                    sell = i;
+                    profit = arr[sell] - arr[buy];
+                    if (profit > bestProfit) {
+                        bestBuy = buy;
+                        bestSell = sell;
+                        bestProfit = profit;
+                    }
+                }
+            } else {
+                if (arr[i] > arr[sell]) {
+                    sell = i;
+                    profit = arr[sell] - arr[buy];
+                    if (profit > bestProfit) {
+                        bestBuy = buy;
+                        bestSell = sell;
+                        bestProfit = profit;
+                    }
+                } else if (arr[i] < arr[buy]) {
+                    buy = sell = i;
+                    profit = 0;
+                }
+            }
+        }
+
+        if (bestProfit > 0) {
+            System.out.printf("The investor should have bought on day %d and sold on day %d, gaining a profit of %d\n", bestBuy+1, bestSell+1, bestProfit);
+        } else {
+            System.out.println("The profit is 0");
+        }  
+    }
 }
