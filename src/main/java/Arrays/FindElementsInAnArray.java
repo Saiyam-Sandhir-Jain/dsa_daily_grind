@@ -68,14 +68,6 @@ public class FindElementsInAnArray {
         } arr[length-1] = temp;
     }
 
-    public static void rotateArrayByKElements(int[] arr, int k) {
-        if (arr.length < k) return;
-        int[] temp = Arrays.copyOfRange(arr, 0, k);
-        for (int i = k; i < arr.length; ++i) {
-            arr[i-k] = arr[i];
-        } System.arraycopy(temp, 0, arr, arr.length-k, k);
-    }
-
     public static void moveAllZeroesToTheEndOfTheArray(int[] arr) {
         int i = 0;
         for (int j = 0; j < arr.length; ++j) {
@@ -104,6 +96,27 @@ public class FindElementsInAnArray {
             num ^= arr[i];
         }
         return num;
+    }
+
+    private static void reverseSubArray(int[] arr, int start, int end) {
+        while (start < end) {
+            arr[start] = arr[start] ^ arr[end];
+            arr[end] = arr[start] ^ arr[end];
+            arr[start] = arr[start] ^ arr[end];
+            start++; end--;
+        }
+    }
+
+    public static void leftRotateArrayByKElements(int[] arr, int k) {
+        reverseSubArray(arr, 0, k-1);
+        reverseSubArray(arr, k, arr.length-1);
+        reverseSubArray(arr, 0, arr.length-1);
+    }
+
+    public static void rightRotateArrayByKElements(int[] arr, int k) {
+        reverseSubArray(arr, 0, arr.length-1);
+        reverseSubArray(arr, 0, k-1);
+        reverseSubArray(arr, k, arr.length-1);
     }
 }
 

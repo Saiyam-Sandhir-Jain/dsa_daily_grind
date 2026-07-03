@@ -31,7 +31,7 @@ public class Main {
 
         int[] arr6 = {1, 2, 3, 4, 5, 6};
         int k = 2;
-        FindElementsInAnArray.rotateArrayByKElements(arr6, k);
+        FindElementsInAnArray.leftRotateArrayByKElements(arr6, k);
         // for (int x : arr6) {
         //     System.out.println(x);
         // }
@@ -48,6 +48,18 @@ public class Main {
 
         int[] arr9 = {2, 2, 1};
         int val6 = FindElementsInAnArray.findTheNumberThatAppearsOnce(arr9);
-        System.out.println(val6);
+        // System.out.println(val6);
+
+        int[] arr10 = {1, 2, 3, 4, 5, 6, 7};
+        FindElementsInAnArray.leftRotateArrayByKElements(arr10, 3);
+        // for (int x : arr10) {
+        //     System.out.println(x);
+        // }
+
+        int[] arr11 = {1, 2, 3, 4, 5, 6, 7};
+        FindElementsInAnArray.rightRotateArrayByKElements(arr11, 3);
+        for (int x : arr11) {
+            System.out.println(x);
+        }
     }
 }
