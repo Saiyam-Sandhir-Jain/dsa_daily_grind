@@ -88,6 +88,9 @@ public class Main {
         // }
 
         int[] arr17 = {1, 1, 1, 2, 2};
-        System.out.println(MediumLevel.findMajorityOccuringElement(arr17));
+        // System.out.println(MediumLevel.findMajorityOccuringElement(arr17));
+
+        int[] arr18 = {2, -3, 4, 5};
+        System.out.println(MediumLevel.kadanesAlgo(arr18));
     }
 }
