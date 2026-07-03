@@ -138,5 +138,33 @@ public class FindElementsInAnArray {
 
         return union;
     }
+
+    public static int countMaxConsecutiveOnes(int[] arr) {
+        int currStreak = 0, maxStreak = 0;
+        int i = 0;
+        while (i < arr.length) {
+            if (arr[i] == 1) currStreak++;
+            else {
+                if (maxStreak < currStreak) {
+                    maxStreak = currStreak;
+                    currStreak = 0;
+                }
+            } i++;
+        } 
+        return currStreak > maxStreak ? currStreak : maxStreak;
+    }
+
+    public static int[] findLongestSubarrayWithGivenSumK(int[] arr, int k) {
+        int l = 0, r = 0;
+        int sum = arr[r++];
+        while (l <= r && r < arr.length) {
+            if (sum <= k) {
+            sum += arr[r++];
+            }
+            if (sum > k) {
+                sum -= arr[l--];
+            }
+        }
+    }
 }
 

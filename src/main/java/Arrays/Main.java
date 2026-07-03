@@ -65,8 +65,12 @@ public class Main {
         int[] arr12 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int[] arr13 = {2, 3, 4, 4, 5, 11, 12};
         int[] union = FindElementsInAnArray.unionOfTwoSortedArrays(arr12, arr13);
-        for (int x : union) {
-            System.out.println(x);
-        }
+        // for (int x : union) {
+        //     System.out.println(x);
+        // }
+
+        int[] arr14 = {1, 1, 0, 0, 0, 1, 1, 1};
+        int val7 = FindElementsInAnArray.countMaxConsecutiveOnes(arr14);
+        System.out.println(val7);
     }
 }
