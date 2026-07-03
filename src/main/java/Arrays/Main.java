@@ -58,7 +58,14 @@ public class Main {
 
         int[] arr11 = {1, 2, 3, 4, 5, 6, 7};
         FindElementsInAnArray.rightRotateArrayByKElements(arr11, 3);
-        for (int x : arr11) {
+        // for (int x : arr11) {
+        //     System.out.println(x);
+        // }
+
+        int[] arr12 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int[] arr13 = {2, 3, 4, 4, 5, 11, 12};
+        int[] union = FindElementsInAnArray.unionOfTwoSortedArrays(arr12, arr13);
+        for (int x : union) {
             System.out.println(x);
         }
     }

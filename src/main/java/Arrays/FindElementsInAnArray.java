@@ -118,5 +118,25 @@ public class FindElementsInAnArray {
         reverseSubArray(arr, 0, k-1);
         reverseSubArray(arr, k, arr.length-1);
     }
+
+    public static int[] unionOfTwoSortedArrays(int[] arr1, int[] arr2) {
+        int[] union = new int[arr1.length + arr2.length];
+        int i = 0, j = 0, k = 0;
+        union[k] = arr1[i] < arr2[j] ? arr1[i++] : arr2[j++];
+        while (i < arr1.length && j < arr2.length) {
+            if (arr1[i] == union[k]) i++;
+            else if (arr2[j] == union[k]) j++;
+            else union[++k] = arr1[i] < arr2[j] ? arr1[i++] : arr2[j++];
+        }
+
+        while (i < arr1.length) {
+            union[++k] = arr1[i++];
+        }
+        while (j < arr2.length) {
+            union[++k] = arr2[j++];
+        }
+
+        return union;
+    }
 }
 
