@@ -71,6 +71,20 @@ public class Main {
 
         int[] arr14 = {1, 1, 0, 0, 0, 1, 1, 1};
         int val7 = FindElementsInAnArray.countMaxConsecutiveOnes(arr14);
-        System.out.println(val7);
+        // System.out.println(val7);
+
+        int[] arr15 = {2, 6, 5, 8, 11};
+        int target = 15;
+        // if (MediumLevel.twoSum(arr15, target)) {
+        //     System.out.println("True");
+        // } else {
+        //     System.out.println("False");
+        // }
+
+        int[] arr16 = {1, 0, 2, 1, 0};
+        MediumLevel.partitionArrayOf012(arr16);
+        for (int x : arr16) {
+            System.out.println(x);
+        }
     }
 }
