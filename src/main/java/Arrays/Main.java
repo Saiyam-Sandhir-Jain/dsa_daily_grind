@@ -83,8 +83,11 @@ public class Main {
 
         int[] arr16 = {1, 0, 2, 1, 0};
         MediumLevel.partitionArrayOf012(arr16);
-        for (int x : arr16) {
-            System.out.println(x);
-        }
+        // for (int x : arr16) {
+        //     System.out.println(x);
+        // }
+
+        int[] arr17 = {1, 1, 1, 2, 2};
+        System.out.println(MediumLevel.findMajorityOccuringElement(arr17));
     }
 }

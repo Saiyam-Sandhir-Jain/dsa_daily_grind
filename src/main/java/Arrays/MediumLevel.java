@@ -29,4 +29,26 @@ public class MediumLevel {
             } else curr++;
         }   
     }
+
+    public static int findMajorityOccuringElement(int[] arr) {
+        int maxOccuringElement = arr[0], curr = 1, count = 1;
+        for (; curr < arr.length; curr++) {
+            if (arr[curr] == maxOccuringElement) {
+                count++;
+            } else {
+                count--;
+                if (count == 0) {
+                    maxOccuringElement = arr[curr];
+                    count = 1;
+                }
+            }
+        } 
+        
+        int occurance = 0;
+        for (int i = 0; i < arr.length; ++i) {
+            if (arr[i] == maxOccuringElement) occurance++;
+        } 
+        if (occurance > arr.length/2) return maxOccuringElement;
+        else return Integer.MIN_VALUE;
+    }
 }
