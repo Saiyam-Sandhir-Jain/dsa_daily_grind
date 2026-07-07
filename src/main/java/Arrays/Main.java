@@ -1,6 +1,7 @@
 package main.java.Arrays;
 
 import main.java.Arrays.FindElementsInAnArray;
+import main.java.Arrays.LeadersInAnArray;
 
 public class Main {
     public static void main(String[] args) {
@@ -94,6 +95,9 @@ public class Main {
         // System.out.println(MediumLevel.kadanesAlgo(arr18));
 
         int[] arr19 = {7, 6, 4, 3, 1};
-        MediumLevel.stockBuyAndSell(arr19);
+        // MediumLevel.stockBuyAndSell(arr19);
+
+        int[] arr20 = {6, 0, 12, 9, -1};
+        // LeadersInAnArray.findLeaders(arr20);
     }
 }

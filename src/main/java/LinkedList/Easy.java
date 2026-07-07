@@ -1,7 +1,10 @@
 package main.java.LinkedList;
 
+import java.util.List;
+import java.util.LinkedList;
+
 public class Easy {
-    public static void main(String[] args) {
+    public static void insertAtHead(List<Integer> list, int a) {
         
     }
 }
