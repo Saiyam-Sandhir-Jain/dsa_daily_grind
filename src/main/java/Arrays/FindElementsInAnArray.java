@@ -154,17 +154,37 @@ public class FindElementsInAnArray {
         return currStreak > maxStreak ? currStreak : maxStreak;
     }
 
-    public static int[] findLongestSubarrayWithGivenSumK(int[] arr, int k) {
-        int l = 0, r = 0;
-        int sum = arr[r++];
-        while (l <= r && r < arr.length) {
-            if (sum <= k) {
-            sum += arr[r++];
-            }
-            if (sum > k) {
-                sum -= arr[l--];
+    // public static int[] findLongestSubarrayWithGivenSumK(int[] arr, int k) {
+    //     int l = 0, r = 0;
+    //     int sum = arr[r++];
+    //     while (l <= r && r < arr.length) {
+    //         if (sum <= k) {
+    //         sum += arr[r++];
+    //         }
+    //         if (sum > k) {
+    //             sum -= arr[l--];
+    //         }
+    //     }
+    // }
+
+    public static int findNumberLessThanOrEqual(int[] arr, int k) {
+        int start = 0, end = arr.length-1, mid = start+end/2;
+        
+        while (start < end) {
+            if (arr[mid] <= k) {
+                start = mid+1;
+                mid = start+end/2;
+            } else {
+                end = mid-1;
+                mid = start+end/2;
             }
         }
+        
+        return end+1;
+    }
+
+    public static int findTheLengthOfLongestSwitchingSubarray(int[] arr) {
+        
     }
 }
 

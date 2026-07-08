@@ -99,5 +99,8 @@ public class Main {
 
         int[] arr20 = {6, 0, 12, 9, -1};
         // LeadersInAnArray.findLeaders(arr20);
+
+        int[] arr21 = {6, 11, 13, 15, 20, 21};
+        System.out.println(FindElementsInAnArray.findNumberLessThanOrEqual(arr21,5));
     }
 }
