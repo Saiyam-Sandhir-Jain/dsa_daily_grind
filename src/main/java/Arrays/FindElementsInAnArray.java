@@ -1,6 +1,8 @@
 package main.java.Arrays;
 
 import java.util.Arrays;
+import java.lang.Math;
+import java.util.Collections;
 
 public class FindElementsInAnArray {
     public static int getLargestElement(int[] arr) {
@@ -183,8 +185,51 @@ public class FindElementsInAnArray {
         return end+1;
     }
 
-    public static int findTheLengthOfLongestSwitchingSubarray(int[] arr) {
+    // public static int findTheLengthOfLongestSwitchingSubarray(int[] arr) {
+    //     if (arr.length == 0) return 0;
+    //     int e = 0, o = 1;
+    //     int rollingLength = 0;
+    //     while (e < arr.length) {
+    //         if (e%2 == 0 && arr[e]%2 == 0) {
+    //             rollingLength++;
+    //         }
+    //         if (o < arr.length && o%2 != 0 && arr[o]%2 != 0) {
+    //             rollingLength++;
+    //         }
+    //         e+=2;
+    //         o+=2;
+    //     }
         
+        
+    // }
+
+    public static void getMinMax(int[] arr) {
+        int e1 = 0, e2 = 1;
+        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
+        while (e1 < arr.length) {
+            if (e1 < arr.length) {
+                min = Math.min(min, arr[e1]);
+                max = Math.max(max, arr[e1]);
+            }
+            if (e2 < arr.length) {
+                min = Math.min(min, arr[e2]);
+                max = Math.max(max, arr[e2]);
+            }
+            e1+=2;
+            e2+=2;
+        }
+        System.out.printf("min: %d\nmax: %d\n", min, max);
+    }
+
+    public static boolean checkIfOptimalPermutationExists(Integer[] arr1, Integer[] arr2, int k) {
+        Arrays.sort(arr1);
+        Arrays.sort(arr2, Collections.reverseOrder());
+
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i]+arr2[i] < k) return false;
+        }
+
+        return true;
     }
 }
 

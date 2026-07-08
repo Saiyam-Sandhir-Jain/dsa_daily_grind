@@ -101,6 +101,9 @@ public class Main {
         // LeadersInAnArray.findLeaders(arr20);
 
         int[] arr21 = {6, 11, 13, 15, 20, 21};
-        System.out.println(FindElementsInAnArray.findNumberLessThanOrEqual(arr21,5));
+        // System.out.println(FindElementsInAnArray.findNumberLessThanOrEqual(arr21,5));
+
+        int[] arr22 = {3, -1, 10, 1, 9, 9, -1};
+        FindElementsInAnArray.getMinMax(arr22);
     }
 }
