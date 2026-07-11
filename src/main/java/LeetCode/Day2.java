@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Queue;
 import java.util.PriorityQueue;
+import java.util.Arrays;
 
 class Problems {
     public static void topKFrequentWords(String[] words, int k) {
@@ -29,6 +30,24 @@ class Problems {
             System.out.print(minHeap.poll() + " ");
         } System.out.println();
     }
+
+    public static void maximumUnitsOnATruck(int[][] boxTypes, int truckSize) {
+        Arrays.sort(boxTypes, (a, b) -> b[1]-a[1]);
+
+        int totalUnits = 0;
+        for (int i = 0; i < boxTypes.length && truckSize > 0; i++) {
+            int numberOfBoxes = boxTypes[i][0];
+            if (numberOfBoxes > truckSize) {
+                totalUnits += truckSize*boxTypes[i][1];
+                truckSize = 0;
+            } else {
+                totalUnits += numberOfBoxes*boxTypes[i][1];
+                truckSize -= numberOfBoxes;
+            }
+        }
+
+        System.out.println(totalUnits);
+    }
 }
 
 public class Day2 {
@@ -42,6 +61,15 @@ public class Day2 {
             int k = 4;
             System.out.printf("The top %d most frequent words are: ", k);
             Problems.topKFrequentWords(words, k);
-        }
+        } System.out.println();
+
+        // 1710. Maximum Units on a Truck
+        {
+            System.out.println("1710. Maximum Units on a Truck");
+            int[][] boxTypes = new int[][]{{1, 3}, {2, 2}, {3, 1}};
+            int truckSize = 4;
+            System.out.printf("The maximum number of units that can be loaded on the truck is: ");
+            Problems.maximumUnitsOnATruck(boxTypes, truckSize);
+        } System.out.println();
     }
 }
