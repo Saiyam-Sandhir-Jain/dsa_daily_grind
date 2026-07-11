@@ -48,6 +48,29 @@ class Problems {
 
         System.out.println(totalUnits);
     }
+
+    public static void largestNumber(int[] nums) {
+        String[] arr = new String[nums.length];
+
+        for (int i = 0; i < nums.length; i++) {
+            arr[i] = String.valueOf(nums[i]);
+        }
+
+        Arrays.sort(arr, (a, b) -> (b + a).compareTo(a + b));
+
+        // Edge case: all zeros
+        if (arr[0].equals("0")) {
+            System.out.println("0");
+            return;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (String s : arr) {
+            sb.append(s);
+        }
+
+        System.out.println(sb.toString());
+    }
 }
 
 public class Day2 {
@@ -68,8 +91,15 @@ public class Day2 {
             System.out.println("1710. Maximum Units on a Truck");
             int[][] boxTypes = new int[][]{{1, 3}, {2, 2}, {3, 1}};
             int truckSize = 4;
-            System.out.printf("The maximum number of units that can be loaded on the truck is: ");
+            System.out.print("The maximum number of units that can be loaded on the truck is: ");
             Problems.maximumUnitsOnATruck(boxTypes, truckSize);
+        } System.out.println();
+
+        // 179. Largest Number
+        {
+            System.out.println("179. Largest Number");
+            int[] nums = {3, 30, 34, 5, 9};
+            System.out.printf("The largest number formed: ");
         } System.out.println();
     }
 }
