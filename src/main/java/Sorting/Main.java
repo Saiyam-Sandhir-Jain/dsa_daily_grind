@@ -1,4 +1,4 @@
-package Sorting;
+package main.java.Sorting;
 
 import java.lang.StringBuilder;
 
@@ -50,6 +50,24 @@ public class Main {
             int[] arr = {9, 8, 7, 6};
             printArr(false, arr);
             BubbleSort.recursiveSort(arr);
+            printArr(true, arr);
+        } System.out.println();
+
+        // Bubble Sort => Iterative
+        {
+            System.out.println("Insertion Sort: Iterative");
+            int[] arr = {6, 4, 6, 0, 9};
+            printArr(false, arr);
+            InsertionSort.iterativeSort(arr);
+            printArr(true, arr);
+        } System.out.println();
+
+        // Insertion Sort => Recursive
+        {
+            System.out.println("Insertion Sort: Recursive");
+            int[] arr = {9, 8, 7, 6};
+            printArr(false, arr);
+            InsertionSort.recursiveSort(arr);
             printArr(true, arr);
         } System.out.println();
     }
