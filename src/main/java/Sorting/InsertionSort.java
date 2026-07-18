@@ -1,4 +1,4 @@
-package Sorting;
+package main.java.Sorting;
 
 public class InsertionSort {
     private static void recursiveSort(int[] arr, int length, int i) {

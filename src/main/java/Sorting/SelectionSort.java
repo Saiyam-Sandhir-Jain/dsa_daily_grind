@@ -1,4 +1,4 @@
-package Sorting;
+package main.java.Sorting;
 
 public class SelectionSort {
     private static void swap(int[] arr, int x, int y) {

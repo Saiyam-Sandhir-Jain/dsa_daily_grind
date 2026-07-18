@@ -1,4 +1,4 @@
-package Sorting;
+package main.java.Sorting;
 
 public class BubbleSort {
     private static void swapPair(int[] arr, int x) {
