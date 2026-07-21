@@ -3,6 +3,8 @@ package main.java.Arrays;
 import java.lang.Math;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Easy {
     public static int findLargestElement(int[] arr) {
@@ -106,5 +108,55 @@ public class Easy {
         }
 
         return -1;
+    }
+
+    public class Solution {
+
+        public static int[] unionOfSortedArrays(int[] arr1, int[] arr2) {
+            List<Integer> list = new ArrayList<>();
+
+            int i = 0, j = 0;
+
+            while (i < arr1.length && j < arr2.length) {
+                if (arr1[i] < arr2[j]) {
+                    if (list.isEmpty() || list.get(list.size() - 1) != arr1[i]) {
+                        list.add(arr1[i]);
+                    }
+                    i++;
+                } else if (arr1[i] > arr2[j]) {
+                    if (list.isEmpty() || list.get(list.size() - 1) != arr2[j]) {
+                        list.add(arr2[j]);
+                    }
+                    j++;
+                } else {
+                    if (list.isEmpty() || list.get(list.size() - 1) != arr1[i]) {
+                        list.add(arr1[i]);
+                    }
+                    i++;
+                    j++;
+                }
+            }
+
+            while (i < arr1.length) {
+                if (list.isEmpty() || list.get(list.size() - 1) != arr1[i]) {
+                    list.add(arr1[i]);
+                }
+                i++;
+            }
+
+            while (j < arr2.length) {
+                if (list.isEmpty() || list.get(list.size() - 1) != arr2[j]) {
+                    list.add(arr2[j]);
+                }
+                j++;
+            }
+
+            int[] ans = new int[list.size()];
+            for (int k = 0; k < list.size(); k++) {
+                ans[k] = list.get(k);
+            }
+
+            return ans;
+        }
     }
 }

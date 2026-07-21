@@ -90,6 +90,18 @@ class Solutions {
             if (idx != -1) System.out.println(idx);
             else System.out.println(); 
         } System.out.println();
+
+        // Union of two sorted arrays
+        {
+            System.out.println("Union of two sorted arrays:");
+            int[] arr1 = {1, 2, 3, 4, 5, 6, 6, 7, 9, 10};
+            int[] arr2 = {1, 1, 2, 4, 5, 5, 6, 7, 8, 9, 9};
+            printArr(true, arr1);
+            printArr(true, arr2);
+            int[] sol = Easy.unionOfSortedArrays(arr1, arr2);
+            System.out.print("Array obtained after the union of the two sorted arrays is: ");
+            printArr(false, arr2);
+        } System.out.println();
     }
 
     public static void medium() {
