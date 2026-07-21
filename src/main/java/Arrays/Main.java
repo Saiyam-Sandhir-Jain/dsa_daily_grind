@@ -78,6 +78,18 @@ class Solutions {
             System.out.print("The given array after moving all the zeroes to the end: ");
             printArr(false, arr);
         } System.out.println();
+
+        // Linear Search an element in an array
+        {
+            System.out.println("Linear search an element in an array:");
+            int[] arr = {1, 3, 0, -4, 3};
+            printArr(true, arr);
+            int idx = Easy.linearSearch(arr, 3);
+            String msg = (idx != -1) ? "The index of the element in the array is: " : "There is no such element in the array";
+            System.out.print(msg);
+            if (idx != -1) System.out.println(idx);
+            else System.out.println(); 
+        } System.out.println();
     }
 
     public static void medium() {
