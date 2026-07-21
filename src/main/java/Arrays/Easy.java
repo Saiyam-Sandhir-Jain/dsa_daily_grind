@@ -1,6 +1,8 @@
 package main.java.Arrays;
 
 import java.lang.Math;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 public class Easy {
     public static int findLargestElement(int[] arr) {
@@ -39,4 +41,24 @@ public class Easy {
         if (count > 1) return false;
         return true;
     }
+
+    public static boolean checkIfAsBeforeBs(String s) {
+        if (s.length() <= 1) return true;
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i) == 'a' && s.charAt(i-1) == 'b') return false;
+        } return true;
+    }
+
+    public static boolean checkIfAscendingNumbersInString(String s) {
+        Pattern pattern = Pattern.compile("\\d+");
+        Matcher matcher = pattern.matcher(s);
+
+        int prev = Integer.MIN_VALUE;
+        while (matcher.find()) {
+            int curr = Integer.parseInt(matcher.group());
+            if (curr < prev) return false;
+            prev = curr;
+        } return true;
+    }
+
 }
