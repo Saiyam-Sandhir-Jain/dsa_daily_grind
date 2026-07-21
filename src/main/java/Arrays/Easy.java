@@ -70,4 +70,33 @@ public class Easy {
 
         return u;
     }
+
+    private static void reverse(int[] arr, int x, int y) {
+        while (x < y) {
+            int temp = arr[x];
+            arr[x] = arr[y];
+            arr[y] = temp;
+            x++; y--;
+        }
+    }
+    public static void rotateArrayByKPlaces(int[] arr, int k) {
+        int n = arr.length;
+        while (k < 0)
+            k = n + k;
+        k = k%n;
+        reverse(arr, 0, n-1);
+        reverse(arr, 0, k-1);
+        reverse(arr, k, n-1);
+    }
+
+    public static void moveAllZerosToEnd(int[] arr) {
+        int u = 0;
+        for (int e = u; e < arr.length; e++) {
+            if (arr[e] != 0) arr[u++] = arr[e];
+        }
+
+        while (u < arr.length) {
+            arr[u++] = 0;
+        }
+    }
 }

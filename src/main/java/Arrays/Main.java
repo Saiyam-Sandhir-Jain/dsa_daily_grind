@@ -62,13 +62,22 @@ class Solutions {
 
         // Rotate Array (leetcode: 189)
         {
-            
-        }
+            int[] arr = {1, 2, 3, 4, 5};
+            printArr(true, arr);
+            Easy.rotateArrayByKPlaces(arr, -6);
+            System.out.print("The given array after rotation: ");
+            printArr(false, arr);
+        } System.out.println();
 
         // Move zeors to the end (leetcode: 283)
         {
-
-        }
+            System.out.println("Move all zeroes to the end of an array:");
+            int[] arr = {1, 0, 99, -2, 3, 0};
+            printArr(true, arr);
+            Easy.moveAllZerosToEnd(arr);
+            System.out.print("The given array after moving all the zeroes to the end: ");
+            printArr(false, arr);
+        } System.out.println();
     }
 
     public static void medium() {
