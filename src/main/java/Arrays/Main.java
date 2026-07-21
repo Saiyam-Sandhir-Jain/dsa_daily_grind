@@ -100,7 +100,15 @@ class Solutions {
             printArr(true, arr2);
             int[] sol = Easy.unionOfSortedArrays(arr1, arr2);
             System.out.print("Array obtained after the union of the two sorted arrays is: ");
-            printArr(false, arr2);
+            printArr(false, sol);
+        } System.out.println();
+
+        // Find the missing number in an array
+        {
+            System.out.println("Finding a missing number in an array: ");
+            int[] arr = {1, 3, 4, 5, 6, 7};
+            printArr(true, arr);
+            System.out.printf("The missing element in the array is: %d\n", Easy.findMissingNumber(arr));
         } System.out.println();
     }
 

@@ -110,53 +110,59 @@ public class Easy {
         return -1;
     }
 
-    public class Solution {
+    public static int[] unionOfSortedArrays(int[] arr1, int[] arr2) {
+        List<Integer> list = new ArrayList<>();
 
-        public static int[] unionOfSortedArrays(int[] arr1, int[] arr2) {
-            List<Integer> list = new ArrayList<>();
+        int i = 0, j = 0;
 
-            int i = 0, j = 0;
-
-            while (i < arr1.length && j < arr2.length) {
-                if (arr1[i] < arr2[j]) {
-                    if (list.isEmpty() || list.get(list.size() - 1) != arr1[i]) {
-                        list.add(arr1[i]);
-                    }
-                    i++;
-                } else if (arr1[i] > arr2[j]) {
-                    if (list.isEmpty() || list.get(list.size() - 1) != arr2[j]) {
-                        list.add(arr2[j]);
-                    }
-                    j++;
-                } else {
-                    if (list.isEmpty() || list.get(list.size() - 1) != arr1[i]) {
-                        list.add(arr1[i]);
-                    }
-                    i++;
-                    j++;
-                }
-            }
-
-            while (i < arr1.length) {
+        while (i < arr1.length && j < arr2.length) {
+            if (arr1[i] < arr2[j]) {
                 if (list.isEmpty() || list.get(list.size() - 1) != arr1[i]) {
                     list.add(arr1[i]);
                 }
                 i++;
-            }
-
-            while (j < arr2.length) {
+            } else if (arr1[i] > arr2[j]) {
                 if (list.isEmpty() || list.get(list.size() - 1) != arr2[j]) {
                     list.add(arr2[j]);
                 }
                 j++;
+            } else {
+                if (list.isEmpty() || list.get(list.size() - 1) != arr1[i]) {
+                    list.add(arr1[i]);
+                }
+                i++;
+                j++;
             }
-
-            int[] ans = new int[list.size()];
-            for (int k = 0; k < list.size(); k++) {
-                ans[k] = list.get(k);
-            }
-
-            return ans;
         }
+
+        while (i < arr1.length) {
+            if (list.isEmpty() || list.get(list.size() - 1) != arr1[i]) {
+                list.add(arr1[i]);
+            }
+            i++;
+        }
+
+        while (j < arr2.length) {
+            if (list.isEmpty() || list.get(list.size() - 1) != arr2[j]) {
+                list.add(arr2[j]);
+            }
+            j++;
+        }
+
+        int[] ans = new int[list.size()];
+        for (int k = 0; k < list.size(); k++) {
+            ans[k] = list.get(k);
+        }
+
+        return ans;
+    }
+
+    public static int findMissingNumber(int[] arr) {
+        int n = arr.length+1;
+        int expectedSum = (n*(n+1))/2;
+        int sum = 0;
+        for (int i : arr) 
+            sum += i;
+        return expectedSum-sum;
     }
 }
