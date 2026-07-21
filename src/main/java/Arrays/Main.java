@@ -55,12 +55,19 @@ class Solutions {
 
         // Remove Duplicates form Sorted Array (leetcode: 26)
         {
-
-        }
+            int[] arr = {0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 4};
+            printArr(true, arr);
+            System.out.printf("The number of unique elements in the array is: %d\n", Easy.removeDuplicatedFromSortedArray(arr));
+        } System.out.println();
 
         // Rotate Array (leetcode: 189)
         {
             
+        }
+
+        // Move zeors to the end (leetcode: 283)
+        {
+
         }
     }
 

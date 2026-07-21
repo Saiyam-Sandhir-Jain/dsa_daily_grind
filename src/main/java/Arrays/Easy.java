@@ -61,4 +61,13 @@ public class Easy {
         } return true;
     }
 
+    public static int removeDuplicatedFromSortedArray(int[] arr) {
+        int u = 1;
+        for (int e = u; e < arr.length; e++) {
+            if (arr[e] != arr[e-1])
+                arr[u++] = arr[e]; 
+        }
+
+        return u;
+    }
 }
