@@ -119,6 +119,15 @@ class Solutions {
             printArr(true, arr);
             System.out.printf("The length of the longest subarray is: %d\n", Hard.findLongestSubarrayLengthSum0(arr));
         } System.out.println();
+
+        // Count the number of subarrays with given xor k
+        {
+            System.out.println("Count the number of subarrays with given xor k:");
+            int[] arr = {4, 2, 2, 6, 4};
+            int k = 6;
+            printArr(true, arr);
+            System.out.printf("The number of subarrays with given xor k: %d\n", Hard.countSubarraysWithXorK(arr, k));
+        } System.out.println();
     }
 }
 
