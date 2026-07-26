@@ -110,6 +110,25 @@ class Solutions {
             printArr(true, arr);
             System.out.printf("The missing element in the array is: %d\n", Easy.findMissingNumber(arr));
         } System.out.println();
+
+        // Maximum consecutive 1s (leetcode: 485)
+        {
+
+        }
+
+        // Single Number (leetcode: 136)
+        {
+
+        }
+
+        // Longest subarry with given sum k
+        {
+            System.out.println("Longest subarray with given sum: ");
+            int[] arr = {10, 5, 2, 7, 1, 9};
+            int k = 15;
+            printArr(true, arr);
+            System.out.printf("The longest subarray length with sum %d is: %d\n", k, Easy.longestSubarrayLengthSumK(arr, k));
+        } System.out.println();
     }
 
     public static void medium() {
@@ -134,6 +153,50 @@ class Solutions {
         }
 
         // Best Time to Buy and Sell Stock (leetcode: 121)
+        {
+
+        }
+
+        // Rearrange array elements by sign (leetcode: 2149)
+        {
+
+        }
+
+        // Next Permutation (leetcode: 31)
+        {
+            
+        }
+
+        // Leaders in an array
+        {
+            System.out.println("Finding leaders in an array: ");
+            int[] arr = {10, 22, 12, 4, 3, 7, 1, 0};
+            printArr(true, arr);
+            System.out.print("The leader in the given array are: ");
+            Medium.leadersInArray(arr);
+        } System.out.println();
+
+        // Longest Consecutive Sequence (leetcode: 128)
+        {
+            
+        }
+
+        // Set Matrix Zeroes (leetcode: 73)
+        {
+
+        }
+
+        // Rotate Image (leetcode: 48)
+        {
+
+        }
+
+        // Print Matrix in spiral manner (leetcode: 54)
+        {
+
+        }
+
+        // Count subarrays with given sum (leetcode: 560)
         {
 
         }
@@ -176,6 +239,11 @@ class Solutions {
             printArr(true, arr);
             System.out.printf("The number of subarrays with given xor k: %d\n", Hard.countSubarraysWithXorK(arr, k));
         } System.out.println();
+
+        // Merge Intervals (leetocde: 56)
+        {
+
+        }
     }
 }
 

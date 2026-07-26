@@ -5,6 +5,8 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 public class Easy {
     public static int findLargestElement(int[] arr) {
@@ -165,4 +167,23 @@ public class Easy {
             sum += i;
         return expectedSum-sum;
     }
-}
+
+    public static int longestSubarrayLengthSumK(int[] arr, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, -1);
+
+        int rollingSum = 0, maxLength = 0;
+        for (int i = 0; i < arr.length; i++) {
+            rollingSum += arr[i];
+            int target = rollingSum - k;
+
+            if (map.containsKey(target)) {
+                maxLength = Math.max(maxLength, i-map.get(target));
+            }
+
+            map.putIfAbsent(rollingSum, i);
+        }
+
+        return maxLength;
+    }
+} 
