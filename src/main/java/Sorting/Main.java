@@ -70,5 +70,23 @@ public class Main {
             InsertionSort.recursiveSort(arr);
             printArr(true, arr);
         } System.out.println();
+
+        // Merge Sort => Iterative
+        {
+            System.out.println("Merge Sort: Iterative");
+            int[] arr = {10, 9, 8, 5, 6, 7};
+            printArr(false, arr);
+            MergeSort.iterativeSort(arr);
+            printArr(true, arr);
+        } System.out.println();
+
+        // Merge Sort => Recursive
+        {
+            System.out.println("Merge Sort: Recursive");
+            int[] arr = {3, 4, 5, 1, 2, 3};
+            printArr(false, arr);
+            MergeSort.recursiveSort(arr);
+            printArr(true, arr);
+        } System.out.println();
     }
 }

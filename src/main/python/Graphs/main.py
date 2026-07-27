@@ -37,7 +37,7 @@ class Solutions:
         adj_matrix = [
             [1, 1, 0], # 0
             [1, 1, 0], # 1
-            [0, 0, 1]
+            [0, 0, 1]  # 2
         ]
         print(f"The number of provinces are: {Medium.Number_of_Provinces.calculate(adj_matrix)}\n")
 
