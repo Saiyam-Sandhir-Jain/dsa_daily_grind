@@ -32,7 +32,14 @@ class Solutions:
 
     @staticmethod
     def medium() -> None:
-        pass
+        # Number of Provinces (leetcode: 547)
+        print("Number of Provices")
+        adj_matrix = [
+            [1, 1, 0], # 0
+            [1, 1, 0], # 1
+            [0, 0, 1]
+        ]
+        print(f"The number of provinces are: {Medium.Number_of_Provinces.calculate(adj_matrix)}\n")
 
     @staticmethod
     def hard() -> None:
