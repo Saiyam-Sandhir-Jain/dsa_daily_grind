@@ -1,4 +1,4 @@
-from Trie import Trie
+from Tries import Trie
 
 if __name__ == "__main__":
     word_list = ["apple", "apps", "banana", "banned", ""]
