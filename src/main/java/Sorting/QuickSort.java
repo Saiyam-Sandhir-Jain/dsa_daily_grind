@@ -1,6 +1,7 @@
 package main.java.Sorting;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class QuickSort {
 
@@ -53,7 +54,7 @@ public class QuickSort {
 
     public static void iterativeSort(int[] arr) {
 
-        Stack<int[]> stack = new Stack<>();
+        Deque<int[]> stack = new ArrayDeque<>();
         stack.push(new int[]{0, arr.length - 1});
 
         while (!stack.isEmpty()) {

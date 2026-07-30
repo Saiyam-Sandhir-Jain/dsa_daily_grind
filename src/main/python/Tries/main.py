@@ -1,15 +1,19 @@
 from Tries import Trie
 
 if __name__ == "__main__":
-    word_list = ["apple", "apps", "banana", "banned", ""]
+    # Tries Implementation (Hash Map)
     trie = Trie()
 
-    for word in word_list:
+    words = [
+        "hello", "world", "what", "the", "hell",
+        "whose", "apples", "and", "bananas",
+        "are", "those", "ban", "them"
+    ]
+
+    for word in words:
         trie.insert(word)
 
-    print(trie.search("apple"))
-    print(trie.search(""))
-    print(trie.search("ban"))
-    print(trie.prefix_search("app"))
-    print(trie.prefix_search(""))
-    print(trie.prefix_search("ban"))
+    print(f"The word 'apple' exists in the list: {trie.search('apple')}")
+    print(f"The word 'apples' exists in the list: {trie.search('apples')}")
+    print(f"There are words with the prefix 'ban' in the list: {trie.prefix_search('ban')}")
+    print(f"There are words with the prefix 'thi' in the list: {trie.prefix_search('thi')}")
