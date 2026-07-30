@@ -1,92 +1,73 @@
 package main.java.Sorting;
 
-import java.lang.StringBuilder;
+import java.util.Arrays;
+import java.util.function.Consumer;
 
 public class Main {
-    private static void printArr(boolean sorted, int[] arr) {
-        StringBuilder sb = new StringBuilder();
-        for (int i : arr) {
-            sb.append(i + " ");
-        }
 
-        if (!sorted) {
-            System.out.print("Array before sorting: ");
-        } else {
-            System.out.print("Array after sorting: ");
-        } System.out.println(sb.toString());
+    private static void printArr(int[] arr, Consumer<int[]> sortingFunction) {
+        System.out.println("Array before sorting: " + Arrays.toString(arr));
+        sortingFunction.accept(arr);
+        System.out.println("Array after sorting: " + Arrays.toString(arr));
+        System.out.println();
     }
 
     public static void main(String[] args) {
-        // Selection Sort => Iterative
+
+        // Selection Sort
         {
             System.out.println("Selection Sort: Iterative");
-            int[] arr = {5, 4, 7, 8, 9};
-            printArr(false, arr);
-            SelectionSort.iterativeSort(arr);
-            printArr(true, arr);
-        } System.out.println();
+            printArr(new int[]{5, 4, 7, 8, 9},
+                    arr -> SelectionSort.iterativeSort(arr));
 
-        // Selection Sort => Recursive
-        {
             System.out.println("Selection Sort: Recursive");
-            int[] arr = {5, 4, 8, 9, 0};
-            printArr(false, arr);
-            SelectionSort.recursiveSort(arr);
-            printArr(true, arr);
-        } System.out.println();
-
-        // Bubble Sort => Iterative
+            printArr(new int[]{5, 4, 8, 9, 0},
+                    arr -> SelectionSort.recursiveSort(arr));
+        }
+        
+        // Bubble Sort
         {
             System.out.println("Bubble Sort: Iterative");
-            int[] arr = {6, 4, 6, 0, 9};
-            printArr(false, arr);
-            BubbleSort.iterativeSort(arr);
-            printArr(true, arr);
-        } System.out.println();
+            printArr(new int[]{6, 4, 6, 0, 9},
+                    arr -> BubbleSort.iterativeSort(arr));
 
-        // Bubble Sort => Recursive
-        {
             System.out.println("Bubble Sort: Recursive");
-            int[] arr = {9, 8, 7, 6};
-            printArr(false, arr);
-            BubbleSort.recursiveSort(arr);
-            printArr(true, arr);
-        } System.out.println();
-
-        // Bubble Sort => Iterative
+            printArr(new int[]{9, 8, 7, 6},
+                    arr -> BubbleSort.recursiveSort(arr));
+        }
+        
+        // Insertion Sort
         {
             System.out.println("Insertion Sort: Iterative");
-            int[] arr = {6, 4, 6, 0, 9};
-            printArr(false, arr);
-            InsertionSort.iterativeSort(arr);
-            printArr(true, arr);
-        } System.out.println();
+            printArr(new int[]{6, 4, 6, 0, 9},
+                    arr -> InsertionSort.iterativeSort(arr));
 
-        // Insertion Sort => Recursive
-        {
             System.out.println("Insertion Sort: Recursive");
-            int[] arr = {9, 8, 7, 6};
-            printArr(false, arr);
-            InsertionSort.recursiveSort(arr);
-            printArr(true, arr);
-        } System.out.println();
+            printArr(new int[]{9, 8, 7, 6},
+                    arr -> InsertionSort.recursiveSort(arr));
+        }
 
-        // Merge Sort => Iterative
+        // Merge Sort
         {
             System.out.println("Merge Sort: Iterative");
-            int[] arr = {10, 9, 8, 5, 6, 7};
-            printArr(false, arr);
-            MergeSort.iterativeSort(arr);
-            printArr(true, arr);
-        } System.out.println();
+            printArr(new int[]{10, 9, 8, 5, 6, 7},
+                    arr -> MergeSort.iterativeSort(arr));
 
-        // Merge Sort => Recursive
-        {
             System.out.println("Merge Sort: Recursive");
-            int[] arr = {3, 4, 5, 1, 2, 3};
-            printArr(false, arr);
-            MergeSort.recursiveSort(arr);
-            printArr(true, arr);
-        } System.out.println();
+            printArr(new int[]{3, 4, 5, 1, 2, 3},
+                    arr -> MergeSort.recursiveSort(arr));
+        }
+
+        // Quick Sort
+        {
+            System.out.println("Quick Sort: Iterative");
+            printArr(new int[]{1, 0, 2, 9, 3, 8, 4, 8},
+                    arr -> QuickSort.recursiveSort(arr));
+
+            System.out.println("Quick Sort: Recursive");
+            printArr(new int[]{1, 0, 2, 9, 3, 8, 4, 8},
+                    arr -> QuickSort.recursiveSort(arr));
+        } 
+        
     }
 }

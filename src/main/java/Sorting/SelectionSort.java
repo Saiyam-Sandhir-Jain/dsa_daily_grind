@@ -1,39 +1,43 @@
 package main.java.Sorting;
 
 public class SelectionSort {
+
     private static void swap(int[] arr, int x, int y) {
-        arr[x] ^= arr[y];
-        arr[y] ^= arr[x];
-        arr[x] ^= arr[y];
+        int temp = arr[x];
+        arr[x] = arr[y];
+        arr[y] = temp;
     }
 
-    private static void recursiveSort(int[] arr, int length, int u) {
-        if (u >= length) return;
-        int min = Integer.MAX_VALUE, minIdx = u;
-        for (int e = u; e < length; e++) {
-            if (arr[e] < min) {
-                min = arr[e];
-                minIdx = e;
-            }
-        } if (arr[minIdx] != arr[u]) swap(arr, u, minIdx);  // to prevent XOR swap destruction
+    private static void select(int[] arr, int start) {
 
-        recursiveSort(arr, length, u+1);
+        int minIdx = start;
+
+        for (int i = start + 1; i < arr.length; i++) {
+            if (arr[i] < arr[minIdx])
+                minIdx = i;
+        }
+
+        if (minIdx != start)
+            swap(arr, start, minIdx);
+    }
+
+    private static void recursiveSort(int[] arr, int start) {
+
+        if (start >= arr.length - 1)
+            return;
+
+        select(arr, start);
+
+        recursiveSort(arr, start + 1);
     }
 
     public static void recursiveSort(int[] arr) {
-        recursiveSort(arr, arr.length, 0);
+        recursiveSort(arr, 0);
     }
 
     public static void iterativeSort(int[] arr) {
-        int u = -1, e;
-        while (++u < arr.length) {
-            int min = Integer.MAX_VALUE, minIdx = u;
-            for (e = u; e < arr.length; e++) {
-                if (arr[e] < min) {
-                    min = arr[e];
-                    minIdx = e;
-                } 
-            } if (arr[minIdx] != arr[u]) swap(arr, u, minIdx); // to prevent XOR swap destruction
-        }
+
+        for (int start = 0; start < arr.length - 1; start++)
+            select(arr, start);
     }
 }

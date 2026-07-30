@@ -1,60 +1,60 @@
 class QuickSort:
 
-    @classmethod
-    def _recursive_sort(cls, arr: list[int], s: int, e: int) -> None:
-        if s >= e:
-            return
-        
-        pivot = arr[s]
-        i, j = s + 1, e
+    @staticmethod
+    def __partition(arr: list[int], start: int, end: int) -> int:
+        pivot = arr[start]
+        i = start + 1
+        j = end
 
-        while i <= j:
-            while i <= e and arr[i] <= pivot:
+        while True:
+
+            while i <= end and arr[i] < pivot:
                 i += 1
-            while j > s and arr[j] >= pivot:
+
+            while j > start and arr[j] > pivot:
                 j -= 1
-            if i <= j:
-                arr[i], arr[j] = arr[j], arr[i]
 
-        arr[s], arr[j] = arr[j], arr[s]
+            if i >= j:
+                break
 
-        # Recursively sort halves
-        cls._recursive_sort(arr, s, j - 1)  # left half
-        cls._recursive_sort(arr, j + 1, e)  # right half
+            arr[i], arr[j] = arr[j], arr[i]
+            i += 1
+            j -= 1
 
-    @classmethod
-    def recursive_sort(cls, arr: list[int]) -> None:
+        arr[start], arr[j] = arr[j], arr[start]
+        return j
+
+    @staticmethod
+    def __recursive_sort(arr: list[int], start: int, end: int) -> None:
+        if start >= end:
+            return
+
+        pivot = QuickSort.__partition(arr, start, end)
+
+        QuickSort.__recursive_sort(arr, start, pivot - 1)
+        QuickSort.__recursive_sort(arr, pivot + 1, end)
+
+    @staticmethod
+    def recursive_sort(arr: list[int]) -> None:
         if len(arr) <= 1:
             return
 
-        cls._recursive_sort(arr, 0, len(arr) - 1)
+        QuickSort.__recursive_sort(arr, 0, len(arr) - 1)
 
-    @classmethod
-    def iterative_sort(cls, arr: list[int]) -> None:
+    @staticmethod
+    def iterative_sort(arr: list[int]) -> None:
         if len(arr) <= 1:
             return
 
         stack = [(0, len(arr) - 1)]
 
-        while len(stack) > 0:
-            s, e = stack.pop()
+        while stack:
+            start, end = stack.pop()
 
-            if s >= e:
+            if start >= end:
                 continue
 
-            pivot = arr[s]
-            i, j = s + 1, e
+            pivot = QuickSort.__partition(arr, start, end)
 
-            while i <= j:
-                while i <= e and arr[i] <= pivot:
-                    i += 1
-                while j > s and arr[j] >= pivot:
-                    j -= 1
-                if i <= j:
-                    arr[i], arr[j] = arr[j], arr[i]
-
-            arr[s], arr[j] = arr[j], arr[s]
-
-            stack.append((s, j - 1))
-            stack.append((j + 1, e))
-
+            stack.append((start, pivot - 1))
+            stack.append((pivot + 1, end))

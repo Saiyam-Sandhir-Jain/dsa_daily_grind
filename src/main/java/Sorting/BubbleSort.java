@@ -1,41 +1,48 @@
 package main.java.Sorting;
 
 public class BubbleSort {
-    private static void swapPair(int[] arr, int x) {
-        int y = x+1;
-        arr[x] ^= arr[y];
-        arr[y] ^= arr[x];
-        arr[x] ^= arr[y];
+
+    private static void swapPair(int[] arr, int i) {
+        int temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
     }
 
-    private static void recursiveSort(int[] arr, int k) {
-        if (k < 1) return;
+    private static boolean bubblePass(int[] arr, int end) {
 
         boolean swapped = false;
-        for (int i = 0, j = 1; j <= k-1; i++, j++) {
-            if (arr[i] > arr[j]) {
+
+        for (int i = 0; i < end; i++) {
+            if (arr[i] > arr[i + 1]) {
                 swapPair(arr, i);
                 swapped = true;
             }
-        } if (!swapped) return;
+        }
 
-        recursiveSort(arr, k-1);
+        return swapped;
     }
+
+    private static void recursiveSort(int[] arr, int end) {
+
+        if (end <= 0)
+            return;
+
+        if (!bubblePass(arr, end))
+            return;
+
+        recursiveSort(arr, end - 1);
+    }
+
     public static void recursiveSort(int[] arr) {
-        recursiveSort(arr, arr.length);
+        recursiveSort(arr, arr.length - 1);
     }
 
     public static void iterativeSort(int[] arr) {
-        if (arr.length <= 1) return;
-        for (int k = arr.length; k >= 1; k--) {
-            boolean swapped = false;
-            for (int i = 0, j = 1; j <= k-1; i++, j++) {
-                if (arr[i] > arr[j]) {
-                    swapPair(arr, i);
-                    swapped = true;
-                }
-            } if (!swapped) break;
+
+        for (int end = arr.length - 1; end > 0; end--) {
+
+            if (!bubblePass(arr, end))
+                return;
         }
-        
     }
 }
