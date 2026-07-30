@@ -186,4 +186,18 @@ public class Easy {
 
         return maxLength;
     }
+
+    public static int getPascalTriangleElement(int r, int c) {
+        if (c > r || c < 1 || r < 1)
+            return 1;
+
+        int n = r-1, m = c-1;
+        int element = 1;
+        for (int i = 0; i < m; i++) {
+            element *= (n-i);
+            element /= (i+1);
+        }
+
+        return element;
+    }
 } 

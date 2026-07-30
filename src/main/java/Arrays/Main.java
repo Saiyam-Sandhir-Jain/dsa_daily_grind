@@ -129,6 +129,12 @@ class Solutions {
             printArr(true, arr);
             System.out.printf("The longest subarray length with sum %d is: %d\n", k, Easy.longestSubarrayLengthSumK(arr, k));
         } System.out.println();
+
+        // Get Pascal Triangle's Element
+        {
+            int row = 5, col = 4;
+            System.out.printf("The pascal's triangle element at position (%d, %d): %d\n", row, col, Easy.getPascalTriangleElement(row, col));
+        } System.out.println();
     }
 
     public static void medium() {
