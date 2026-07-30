@@ -3,9 +3,28 @@ from Arrays import Easy
 class Solutions:
     @staticmethod
     def easy() -> None:
-        # Get pascal's triangle's element
+        # Get Pascal's Triangle element
         row, col = 5, 3
-        print(f"The element in pascal's triangle at row {row} and column {col}: {Easy.get_pascals_triangle_element(row, col)}\n")
+        print(
+            f"The element in Pascal's Triangle at row {row} and column {col}: "
+            f"{Easy.get_pascals_triangle_element(row, col)}\n"
+        )
+
+        # Print Pascal's Triangle row
+        row = 5
+        print(f"Pascal's Triangle row {row}: ", end="")
+        Easy.print_pascals_triangle_row(row)
+        print()
+
+        # Generate Pascal's Triangle
+        rows = 5
+        print(f"Pascal's Triangle ({rows} rows):")
+
+        triangle = Easy.generate_pascals_triangle(rows)
+
+        for row in triangle:
+            print(*row)
+        print()
 
     @staticmethod
     def medium() -> None:

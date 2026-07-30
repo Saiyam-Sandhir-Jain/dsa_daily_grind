@@ -200,4 +200,36 @@ public class Easy {
 
         return element;
     }
+
+    public static void printPascalsTriangleRow(int r) {
+        int n = r-1, element = 1;
+
+        for (int i = 0; i < r; i++) {
+            System.out.print(element + " ");
+            element *= n-i;
+            element /= i+1;
+        }
+
+        System.out.println();
+    }
+
+    public static List<List<Integer>> generatePascalsTriangle(int numRows) {
+        List<List<Integer>> pascalTriangle = new ArrayList<>();
+        List<Integer> row = new ArrayList<>();
+        row.add(1);
+        pascalTriangle.add(row);
+        
+
+        for (int rowIdx = 1; rowIdx < numRows; rowIdx++) {
+            row = new ArrayList<>(rowIdx+1); row.add(1);
+            List<Integer> prevRow = pascalTriangle.get(rowIdx-1);
+            for (int j = 0, k = 1; k < rowIdx; j++, k++) {
+                row.add(prevRow.get(j)+prevRow.get(k));
+            } row.add(1);
+
+            pascalTriangle.add(row);
+        }
+
+        return pascalTriangle;
+    }
 } 

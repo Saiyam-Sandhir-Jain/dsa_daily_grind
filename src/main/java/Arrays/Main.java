@@ -1,5 +1,8 @@
 package main.java.Arrays;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class Solutions {
     private static void printArr(boolean defaultMsg, int[] arr) {
         if (defaultMsg) {
@@ -134,6 +137,28 @@ class Solutions {
         {
             int row = 5, col = 4;
             System.out.printf("The pascal's triangle element at position (%d, %d): %d\n", row, col, Easy.getPascalTriangleElement(row, col));
+        } System.out.println();
+
+        // Print Pascals Triangle Row
+        {
+            int row = 5;
+            System.out.printf("The pascal's triangle row %d: ", row);
+            Easy.printPascalsTriangleRow(row);
+        } System.out.println();
+
+        // Generate Pascals Triangle
+        {
+            int rows = 5;
+            System.out.printf("Pascal's Triangle (%d rows):\n", rows);
+
+            List<List<Integer>> triangle = Easy.generatePascalsTriangle(rows);
+
+            for (List<Integer> row : triangle) {
+                for (int element : row) {
+                    System.out.print(element + " ");
+                }
+                System.out.println();
+            }
         } System.out.println();
     }
 
