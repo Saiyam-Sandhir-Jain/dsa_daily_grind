@@ -1,0 +1,2 @@
+class Classic:
+    pass

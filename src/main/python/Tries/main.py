@@ -1,5 +1,6 @@
 from Tries import Trie, TrieII
 
+
 class Solutions:
     @staticmethod
     def trie_hash_map() -> None:
