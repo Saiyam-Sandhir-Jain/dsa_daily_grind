@@ -14,7 +14,7 @@ class Solutions:
         pass
 
 def __runSection(func:callable):
-    print(f"##### String ({func.__name__}) #####")
+    print(f"##### String ({func.__name__.capitalize()}) #####")
     func()
     print()
 

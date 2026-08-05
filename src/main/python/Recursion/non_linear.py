@@ -1,0 +1,2 @@
+class NonLinear:
+    pass
