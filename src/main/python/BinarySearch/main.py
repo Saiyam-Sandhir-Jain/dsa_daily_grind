@@ -17,11 +17,10 @@ class Solutions:
     def matrix():
         pass
 
-def __runSection(func:callable, newLine:bool = True):
+def __runSection(func:callable):
     print(f"##### Binary Search ({func.__name__.capitalize()}) #####")
     func()
-    if newLine:
-        print()
+    print()
 
 if __name__ == "__main__":
     functions = [Solutions.classic, Solutions.bound, Solutions.answers, Solutions.matrix]
