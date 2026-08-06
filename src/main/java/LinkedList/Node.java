@@ -34,4 +34,49 @@ public class Node {
             this.next = next;
         }
     }
+
+    public static class Doubly {
+        private int val;
+        private Doubly prev;
+        private Doubly next;
+
+        // Contructors
+        public Doubly(int val) {
+            this.val = val;
+            this.prev = null;
+            this.next = null;
+        }
+
+        public Doubly(int val, Doubly prev, Doubly next) {
+            this.val = val;
+            this.prev = prev;
+            this.next = next;
+        }
+
+        // Getters
+        public int getVal() {
+            return this.val;
+        }
+
+        public Doubly getPrev() {
+            return this.prev;
+        }
+
+        public Doubly getNext() {
+            return this.next;
+        }
+
+        // Setters
+        public void setVal(int val) {
+            this.val = val;
+        }
+
+        public void setPrev(Doubly prev) {
+            this.prev = prev;
+        }
+
+        public void setNext(Doubly next) {
+            this.next = next;
+        }
+    }
 }
