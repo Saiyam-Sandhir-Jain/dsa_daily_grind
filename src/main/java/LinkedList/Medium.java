@@ -1,5 +1,10 @@
 package main.java.LinkedList;
 
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.ArrayDeque;
+
 public class Medium {
     public static Node.Singly deleteFromEnd(Node.Singly head, int n) {
         int count = n-1;
@@ -100,5 +105,62 @@ public class Medium {
         }
 
         return dummy.getNext();
+    }
+
+    public static int[] nextLargerNodes(Node.Singly head) {
+        Deque<int[]> stack = new ArrayDeque<>();
+        List<Integer> list = new ArrayList<>();
+
+        int index = 0;
+        while (head != null) {
+            list.add(0);
+
+            while (!stack.isEmpty() && stack.peek()[0] < head.getVal()) {
+                int idx = stack.pop()[1];
+                list.set(idx, head.getVal());
+            }
+
+            stack.push(new int[]{head.getVal(), index});
+            index++;
+
+            head = head.getNext();
+        }
+
+        int[] ans = new int[list.size()];
+        for (int i = 0; i < ans.length; i++) {
+            ans[i] = list.get(i);
+        }
+
+        return ans;
+    }
+
+    public static Node.Singly removeNodes(Node.Singly head) {
+        Deque<Node.Singly> stack = new ArrayDeque<>();
+
+        Node.Singly curr = head;
+
+        while (curr != null) {
+            while (!stack.isEmpty() && curr.getVal() > stack.peek().getVal()) {
+                stack.pop().setVal(0);
+            }
+
+            stack.push(curr);
+            curr = curr.getNext();
+        }
+
+        while (head != null && head.getVal() == 0) {
+            head = head.getNext();
+        }
+
+        curr = head;
+        while (curr != null) {
+            while (curr.getNext() != null && curr.getNext().getVal() == 0) {
+                curr.setNext(curr.getNext().getNext());
+            }
+
+            curr = curr.getNext();
+        }
+
+        return head;
     }
 }                
