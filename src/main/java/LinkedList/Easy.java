@@ -1,11 +1,13 @@
 package main.java.LinkedList;
 
 public class Easy {
+
     public static boolean searchKey(Node.Singly head, int key) {
         while (head != null) {
             if (head.getVal() == key) {
                 return true;
-            } head = head.getNext();
+            }
+            head = head.getNext();
         }
 
         return false;
@@ -22,18 +24,18 @@ public class Easy {
 
         Node.Singly curr = head;
         Node.Singly prev = null;
+
         while (curr != null && idx > 0) {
             prev = curr;
             curr = curr.getNext();
             idx--;
         }
 
-        if (curr == null && idx != 0){
+        if (curr == null && idx != 0) {
             return head;
         }
 
         prev.setNext(new Node.Singly(val, curr));
-
         return head;
     }
 
@@ -42,11 +44,12 @@ public class Easy {
             return head;
 
         if (idx == 0) {
-            head = head.getNext();
-            return head;
+            return head.getNext();
         }
 
-        Node.Singly curr = head, prev = null;
+        Node.Singly curr = head;
+        Node.Singly prev = null;
+
         while (curr.getNext() != null && idx > 0) {
             prev = curr;
             curr = curr.getNext();
@@ -61,9 +64,11 @@ public class Easy {
     }
 
     public static Node.Singly getIntersectionNode(Node.Singly headA, Node.Singly headB) {
-        Node.Singly currA = headA, currB = headB;
+        Node.Singly currA = headA;
+        Node.Singly currB = headB;
 
         while (currA != currB) {
+
             currA = currA.getNext();
             currB = currB.getNext();
 
@@ -77,33 +82,34 @@ public class Easy {
     }
 
     public static Node.Singly firstMiddleNode(Node.Singly head) {
-        if (head == null || head.getNext() == null) {
+        if (head == null || head.getNext() == null)
             return head;
-        }
 
-        Node.Singly slow = head, fast = head;
+        Node.Singly slow = head;
+        Node.Singly fast = head;
+
         while (fast.getNext() != null && fast.getNext().getNext() != null) {
-            fast = fast.getNext().getNext();
             slow = slow.getNext();
+            fast = fast.getNext().getNext();
         }
 
         return slow;
     }
 
     public static Node.Singly secondMiddleNode(Node.Singly head) {
-        if (head == null || head.getNext() == null) {
+        if (head == null || head.getNext() == null)
             return head;
-        }
 
-        Node.Singly slow = head, fast = head;
+        Node.Singly slow = head;
+        Node.Singly fast = head;
+
         while (fast.getNext() != null && fast.getNext().getNext() != null) {
-            fast = fast.getNext().getNext();
             slow = slow.getNext();
+            fast = fast.getNext().getNext();
         }
 
-        if (fast.getNext() != null) {
+        if (fast.getNext() != null)
             return slow.getNext();
-        }
 
         return slow;
     }
@@ -112,12 +118,14 @@ public class Easy {
         if (head == null || head.getNext() == null)
             return false;
 
-        Node.Singly slow = head, fast = head;
-        while (fast.getNext() != null && fast.getNext().getNext() != null) {
-            fast = fast.getNext().getNext();
-            slow = slow.getNext();
+        Node.Singly slow = head;
+        Node.Singly fast = head;
 
-            if (fast == slow)
+        while (fast.getNext() != null && fast.getNext().getNext() != null) {
+            slow = slow.getNext();
+            fast = fast.getNext().getNext();
+
+            if (slow == fast)
                 return true;
         }
 

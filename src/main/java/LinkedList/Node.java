@@ -1,33 +1,38 @@
 package main.java.LinkedList;
 
 public class Node {
-    public static class Singly {
-        private int val;
+
+    public static abstract class Base {
+        protected int val;
+
+        public Base(int val) {
+            this.val = val;
+        }
+
+        public int getVal() {
+            return val;
+        }
+
+        public void setVal(int val) {
+            this.val = val;
+        }
+    }
+
+    public static class Singly extends Base {
+
         private Singly next;
 
-        // Contructors
         public Singly(int val) {
-            this.val = val;
-            this.next = null;
+            super(val);
         }
 
         public Singly(int val, Singly next) {
-            this.val = val;
+            super(val);
             this.next = next;
         }
 
-        // Getters
-        public int getVal() {
-            return this.val;
-        }
-
         public Singly getNext() {
-            return this.next;
-        }
-
-        // Setters
-        public void setVal(int val) {
-            this.val = val;
+            return next;
         }
 
         public void setNext(Singly next) {
@@ -35,40 +40,27 @@ public class Node {
         }
     }
 
-    public static class Doubly {
-        private int val;
+    public static class Doubly extends Base {
+
         private Doubly prev;
         private Doubly next;
 
-        // Contructors
         public Doubly(int val) {
-            this.val = val;
-            this.prev = null;
-            this.next = null;
+            super(val);
         }
 
         public Doubly(int val, Doubly prev, Doubly next) {
-            this.val = val;
+            super(val);
             this.prev = prev;
             this.next = next;
         }
 
-        // Getters
-        public int getVal() {
-            return this.val;
-        }
-
         public Doubly getPrev() {
-            return this.prev;
+            return prev;
         }
 
         public Doubly getNext() {
-            return this.next;
-        }
-
-        // Setters
-        public void setVal(int val) {
-            this.val = val;
+            return next;
         }
 
         public void setPrev(Doubly prev) {
@@ -77,6 +69,67 @@ public class Node {
 
         public void setNext(Doubly next) {
             this.next = next;
+        }
+    }
+
+    public static class LRU extends Doubly {
+
+        private int key;
+
+        public LRU(int key, int value) {
+            super(value);
+            this.key = key;
+        }
+
+        public LRU(int key, int value, Doubly prev, Doubly next) {
+            super(value, prev, next);
+            this.key = key;
+        }
+
+        public int getKey() {
+            return key;
+        }
+
+        public void setKey(int key) {
+            this.key = key;
+        }
+    }
+
+    public static class LFU extends Doubly {
+
+        private int key;
+        private int frequency;
+
+        public LFU(int key, int value) {
+            super(value);
+            this.key = key;
+            this.frequency = 1;
+        }
+
+        public LFU(int key, int value, int frequency, Doubly prev, Doubly next) {
+            super(value, prev, next);
+            this.key = key;
+            this.frequency = frequency;
+        }
+
+        public int getKey() {
+            return key;
+        }
+
+        public void setKey(int key) {
+            this.key = key;
+        }
+
+        public int getFrequency() {
+            return frequency;
+        }
+
+        public void setFrequency(int frequency) {
+            this.frequency = frequency;
+        }
+
+        public void incrementFrequency() {
+            frequency++;
         }
     }
 }
