@@ -1,5 +1,5 @@
 from __future__ import annotations
-from enum import Enum
+from enum import Enum, Flag, auto
 
 class Easy:
     class TrafficSignal(Enum):
@@ -20,3 +20,68 @@ class Easy:
 
                 case _:
                     raise AssertionError()
+
+    class Day(Enum):
+        MONDAY = 1
+        TUESDAY = 2
+        WEDNESDAY = 3
+        THURSDAY = 4
+        FRIDAY = 5
+        SATURDAY = 6
+        SUNDAY = 7
+
+        def is_weekend(self) -> bool:
+            return self in (Easy.Day.SATURDAY, Easy.Day.SUNDAY)
+
+    class Direction(Enum):
+        UP = (0, 1)
+        DOWN = (0, -1)
+        LEFT = (-1, 0)
+        RIGHT = (1, 0)
+
+        def __init__(self, dx: int, dy: int):
+            self.dx = dx
+            self.dy = dy
+
+        @staticmethod
+        def move(
+            start: list[int],
+            directions: list[Easy.Direction]
+        ) -> tuple[int, int]:
+
+            for direction in directions:
+                start[0] += direction.dx
+                start[1] += direction.dy
+
+            return tuple(start)
+
+    from enum import Enum, auto
+
+    class Chess(Enum):
+        WHITE = auto()
+        BLACK = auto()
+
+        def opposite(self) -> Easy.Chess:
+            match self:
+                case Easy.Chess.WHITE:
+                    return Easy.Chess.BLACK
+
+                case Easy.Chess.BLACK:
+                    return Easy.Chess.WHITE
+
+                case _:
+                    raise AssertionError()
+
+    class Season(Enum):
+        SPRING = 1
+        SUMMER = 2
+        AUTUM = 3
+        WINTER = 4
+
+        @staticmethod
+        def get_seasons() -> list[Easy.Season]:
+            return [season.name for season in Easy.Season];
+
+        @staticmethod
+        def count_seasons() -> int:
+            return len(Easy.Season);
