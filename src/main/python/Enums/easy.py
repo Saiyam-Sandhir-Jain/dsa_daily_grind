@@ -1,5 +1,5 @@
 from __future__ import annotations
-from enum import Enum, Flag, auto
+from enum import Enum, auto
 
 class Easy:
     class TrafficSignal(Enum):
@@ -54,8 +54,6 @@ class Easy:
                 start[1] += direction.dy
 
             return tuple(start)
-
-    from enum import Enum, auto
 
     class Chess(Enum):
         WHITE = auto()
