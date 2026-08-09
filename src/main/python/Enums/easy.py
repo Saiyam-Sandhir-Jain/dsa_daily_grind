@@ -83,3 +83,32 @@ class Easy:
         @staticmethod
         def count_seasons() -> int:
             return len(Easy.Season);
+
+    class GameMenu(Enum):
+        NEW_GAME = 1
+        LOAD_GAME = 2
+        SETTINGS = 3
+        EXIT = 4
+
+        @staticmethod
+        def renderMenu() -> str:
+            menu = ""
+            for option in Easy.GameMenu:
+                name = option.name.replace("_", " ")
+                menu += f"{option.value}. {name}\n"
+
+            return menu
+
+    class GameCommand(Enum):
+        MOVE = auto()
+        ATTACK = auto()
+        DEFEND = auto()
+        QUIT = auto()
+
+        @staticmethod
+        def parse(raw:str) -> Easy.GameCommand | None:
+            try:
+                return Easy.GameCommand[raw]
+            except KeyError:
+                return None 
+        

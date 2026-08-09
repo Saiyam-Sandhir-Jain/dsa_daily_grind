@@ -1,5 +1,7 @@
 package main.java.Enums;
 
+import java.lang.StringBuilder;
+
 public class Easy {
     public enum TrafficSignal {
         RED,
@@ -85,5 +87,37 @@ public class Easy {
         public static int countSeasons() {
             return Season.values().length;
         }
-    }    
+    } 
+    
+    public enum GameMenu {
+        NEW_GAME,
+        LOAD_GAME,
+        SETTINGS,
+        EXIT;
+
+        public static String renderMenu() {
+            StringBuilder sb = new StringBuilder();
+            for (GameMenu gm : GameMenu.values()) {
+                String optionName = gm.name().replaceAll("_+", " ");
+                sb.append((gm.ordinal()+1) + ". " + optionName + "\n");
+            }
+                
+            return sb.toString();
+        }
+    }
+
+    public enum GameCommand {
+        MOVE,
+        ATTACK,
+        DEFEND,
+        QUIT;
+
+        public static GameCommand parse(String raw) {
+            try {
+                return GameCommand.valueOf(raw);
+            } catch (IllegalArgumentException e) {
+                return null;
+            }
+        }
+    }
 }

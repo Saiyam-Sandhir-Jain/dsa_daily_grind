@@ -68,6 +68,22 @@ class Solutions:
         print(f"The number of seasons are: {Easy.Season.count_seasons()}")
         print()
 
+        # Q7. Game Menu
+        print("Q7. Game Menu:")
+
+        print(f"The game menu is:\n{Easy.GameMenu.renderMenu()}")
+        print()
+
+        # Q8. Game Command
+        print("Q8. Game Command:")
+
+        cmd = "ATTACK"
+        print(f"The given command is: {cmd}")
+        if(Easy.GameCommand.parse(cmd)):
+            print("Commmand Executed")
+        else:
+            print("Invalid command passed")
+
 
     @staticmethod
     def medium():

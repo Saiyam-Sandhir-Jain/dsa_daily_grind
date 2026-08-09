@@ -80,6 +80,27 @@ class Solutions {
             System.out.printf("The number of seasons are: %d\n", Easy.Season.countSeasons());
         }
         System.out.println();
+
+        // Q7. Game Menu
+        {
+            System.out.println("Q7. Game Menu: ");
+
+            System.out.printf("The rendered game menu:\n%s", Easy.GameMenu.renderMenu());
+        }
+        System.out.println();
+
+        // Q8. Game Command
+        {
+            System.out.println("Q8. Game Command: ");
+
+            String cmd = "ATTACK";
+            System.out.println("The given command is: " + cmd);
+            if (Easy.GameCommand.parse(cmd) == null)
+                System.out.println("No such command exists");
+            else
+                System.out.println("Command exectued");
+        }
+        System.out.println();
     }
 
     public static void medium() {
