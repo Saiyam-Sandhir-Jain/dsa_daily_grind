@@ -84,6 +84,20 @@ class Solutions:
         else:
             print("Invalid command passed")
 
+        # Q9. Sort Tasks By Priority
+        print("#Q9. Sort Tasks by Priority:")
+
+        low = Easy.Task.LOW
+        med = Easy.Task.MEDIUM
+        high = Easy.Task.HIGH
+        crit = Easy.Task.CRITICAL
+
+        tasks = [low, crit, med, low, low, high, med, crit, low]
+        print(f"The give tasks list: {[task.name.title() for task in tasks]}")
+        Easy.Task.sortByPriority(tasks)
+        print(f"The tasks after sorting based on priority: {[task.name.title() for task in tasks]}")
+        print()
+
 
     @staticmethod
     def medium():

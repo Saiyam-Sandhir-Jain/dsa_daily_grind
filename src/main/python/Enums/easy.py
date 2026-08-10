@@ -1,5 +1,5 @@
 from __future__ import annotations
-from enum import Enum, auto
+from enum import Enum, auto, IntEnum
 
 class Easy:
     class TrafficSignal(Enum):
@@ -111,4 +111,14 @@ class Easy:
                 return Easy.GameCommand[raw]
             except KeyError:
                 return None 
+
+    class Task(IntEnum):
+        LOW = 1
+        MEDIUM = 2
+        HIGH = 3
+        CRITICAL = 4
+
+        @staticmethod
+        def sortByPriority(tasks:list[Easy.Task]) -> None:
+            tasks.sort(reverse=True)
         
