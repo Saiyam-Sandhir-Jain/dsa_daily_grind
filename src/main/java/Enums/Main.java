@@ -101,6 +101,78 @@ class Solutions {
                 System.out.println("Command exectued");
         }
         System.out.println();
+
+        // Q9. Sort Tasks By Priority (Selection Sort)
+        {
+            System.out.println("Q9. Sort Tasks by Priority (Selection Sort):");
+
+            Easy.Task low = Easy.Task.LOW;
+            Easy.Task med = Easy.Task.MEDIUM;
+            Easy.Task high = Easy.Task.HIGH;
+            Easy.Task crit = Easy.Task.CRITICAL;
+            
+            Easy.Task[] tasks = new Easy.Task[]{low, crit, med, low, low, high, med, crit, low};
+            
+            System.out.print("The given tasks list: ");
+            for (Easy.Task task : tasks) {
+                System.out.print(task.toString() + " ");
+            } System.out.println();
+
+            Easy.Task.sortByPrioritySelectionSort(tasks);
+
+            System.out.print("The tasks after sorting based on priority: ");
+            for (Easy.Task task : tasks) {
+                System.out.print(task.toString() + " ");
+            } System.out.println();
+        } System.out.println();
+
+        // Q9. Sort Tasks By Priority (Bubble Sort)
+        {
+            System.out.println("Q9. Sort Tasks by Priority (Bubble Sort):");
+
+            Easy.Task low = Easy.Task.LOW;
+            Easy.Task med = Easy.Task.MEDIUM;
+            Easy.Task high = Easy.Task.HIGH;
+            Easy.Task crit = Easy.Task.CRITICAL;
+            
+            Easy.Task[] tasks = new Easy.Task[]{low, crit, med, low, low, high, med, crit, low};
+            
+            System.out.print("The given tasks list: ");
+            for (Easy.Task task : tasks) {
+                System.out.print(task.toString() + " ");
+            } System.out.println();
+
+            Easy.Task.sortByPriorityBubbleSort(tasks);
+
+            System.out.print("The tasks after sorting based on priority: ");
+            for (Easy.Task task : tasks) {
+                System.out.print(task.toString() + " ");
+            } System.out.println();
+        } System.out.println();
+
+        // Q9. Sort Tasks By Priority (Insertion Sort)
+        {
+            System.out.println("Q9. Sort Tasks by Priority (Insertion Sort):");
+
+            Easy.Task low = Easy.Task.LOW;
+            Easy.Task med = Easy.Task.MEDIUM;
+            Easy.Task high = Easy.Task.HIGH;
+            Easy.Task crit = Easy.Task.CRITICAL;
+            
+            Easy.Task[] tasks = new Easy.Task[]{low, crit, med, low, low, high, med, crit, low};
+            
+            System.out.print("The given tasks list: ");
+            for (Easy.Task task : tasks) {
+                System.out.print(task.toString() + " ");
+            } System.out.println();
+
+            Easy.Task.sortByPriorityInsertionSort(tasks);
+
+            System.out.print("The tasks after sorting based on priority: ");
+            for (Easy.Task task : tasks) {
+                System.out.print(task.toString() + " ");
+            } System.out.println();
+        } System.out.println();
     }
 
     public static void medium() {

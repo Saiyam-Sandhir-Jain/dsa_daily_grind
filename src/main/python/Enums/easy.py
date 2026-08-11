@@ -119,6 +119,6 @@ class Easy:
         CRITICAL = 4
 
         @staticmethod
-        def sortByPriority(tasks:list[Easy.Task]) -> None:
+        def sort_by_priority(tasks:list[Easy.Task]) -> None:
             tasks.sort(reverse=True)
         

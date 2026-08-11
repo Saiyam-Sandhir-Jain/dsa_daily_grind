@@ -93,8 +93,8 @@ class Solutions:
         crit = Easy.Task.CRITICAL
 
         tasks = [low, crit, med, low, low, high, med, crit, low]
-        print(f"The give tasks list: {[task.name.title() for task in tasks]}")
-        Easy.Task.sortByPriority(tasks)
+        print(f"The given tasks list: {[task.name.title() for task in tasks]}")
+        Easy.Task.sort_by_priority(tasks)
         print(f"The tasks after sorting based on priority: {[task.name.title() for task in tasks]}")
         print()
 

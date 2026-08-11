@@ -120,4 +120,72 @@ public class Easy {
             }
         }
     }
+
+    public enum Task {
+        LOW,
+        MEDIUM,
+        HIGH,
+        CRITICAL;
+
+        private static void swap(Task[] tasks, int x, int y) {
+            Task temp = tasks[x];
+            tasks[x] = tasks[y];
+            tasks[y] = temp;
+        }
+
+        public static void sortByPrioritySelectionSort(Task[] tasks) {
+            if (tasks.length == 0)
+                return;
+
+            Task maxValue;
+            int maxIdx;
+            for (int i = 1; i < tasks.length; i++) {
+                maxIdx = i-1; maxValue = tasks[i-1];
+                for (int j = i; j < tasks.length; j++) {
+                    if (maxValue.compareTo(tasks[j]) < 0) {
+                        maxValue = tasks[j];
+                        maxIdx = j;
+                    }
+                } if (maxIdx != i-1) swap(tasks, maxIdx, i-1);
+            }
+        }
+
+        public static void sortByPriorityBubbleSort(Task[] tasks) {
+            if (tasks.length <= 1)
+                return;
+            for (int i = tasks.length; i > 1; i--) {
+                boolean swapped = false;
+                for (int j = 1; j < i; j++) {
+                    if (tasks[j].compareTo(tasks[j-1]) > 0) {
+                        swap(tasks, j, j-1);
+                        swapped = true;
+                    }
+                }
+
+                if (!swapped)
+                    return;
+            }
+        }
+
+        public static void sortByPriorityInsertionSort(Task[] tasks) {
+            if (tasks.length <= 1)
+                return;
+
+            for (int i = 1; i < tasks.length; i++) {
+                Task temp = tasks[i];
+
+                int j = i-1;
+                for (; j >= 0 && tasks[j].compareTo(temp) < 0; j--) {
+                    tasks[j+1] = tasks[j];
+                }
+
+                tasks[j+1] = temp;
+            }
+        }
+
+        @Override
+        public String toString() {
+            return this.name();
+        }
+    }
 }
