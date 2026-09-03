@@ -1,42 +1,54 @@
-from Sorting import *
-from typing import Callable
+from collections.abc import Callable
+from dataclasses import dataclass
 
-SortFunction = Callable[[list[int]], None]
+class Solutions:
 
+    @staticmethod
+    def bubble_sort() -> None:
+        pass
 
-def __print_arr(arr: list[int], sorting_func: SortFunction) -> None:
-    print(f"Array before sorting: {arr}")
-    sorting_func(arr)
-    print(f"Array after sorting: {arr}\n")
+    @staticmethod
+    def selection_sort() -> None:
+        pass
 
+    @staticmethod
+    def insertion_sort() -> None:
+        pass
 
+    @staticmethod
+    def merge_sort() -> None:
+        pass
+
+    @staticmethod
+    def quick_sort() -> None:
+        pass
+
+@dataclass
+class Section:
+    title: str
+    action: Callable[[], None]
+
+def __run_section(section: Section) -> None:
+    print(f"##### {section.title} #####")
+    section.action()
+    print()
+
+def main() -> None:
+    functions = [
+        Solutions.bubble_sort,
+        Solutions.selection_sort,
+        Solutions.insertion_sort,
+        Solutions.merge_sort,
+        Solutions.quick_sort
+    ]
+
+    for function in functions:
+        __run_section(
+            Section(
+                function.__name__.replace("_", " ").title(), 
+                function
+            )
+        )
+    
 if __name__ == "__main__":
-    print("Selection Sort: Iterative")
-    __print_arr([3, 4, 2, 1], SelectionSort.iterative_sort)
-
-    print("Selection Sort: Recursive")
-    __print_arr([3, 4, 2, 1], SelectionSort.recursive_sort)
-
-    print("Insertion Sort: Iterative")
-    __print_arr([3, 4, 2, 1], InsertionSort.iterative_sort)
-
-    print("Insertion Sort: Recursive")
-    __print_arr([3, 4, 2, 1], InsertionSort.recursive_sort)
-
-    print("Bubble Sort: Iterative")
-    __print_arr([3, 4, 2, 1], BubbleSort.iterative_sort)
-
-    print("Bubble Sort: Recursive")
-    __print_arr([3, 4, 2, 1], BubbleSort.recursive_sort)
-
-    print("Merge Sort: Iterative")
-    __print_arr([1, 0, 2, 9, 3, 8, 4, 8], MergeSort.iterative_sort)
-
-    print("Merge Sort: Recursive")
-    __print_arr([3, 4, 2, 1, 0], MergeSort.recursive_sort)
-
-    print("Quick Sort: Iterative")
-    __print_arr([1, 0, 2, 9, 3, 8, 4, 8], QuickSort.iterative_sort)
-
-    print("Quick Sort: Recursive")
-    __print_arr([1, 0, 2, 9, 3, 8, 4, 8], QuickSort.recursive_sort)
+    main()
