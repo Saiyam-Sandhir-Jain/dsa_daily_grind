@@ -3,7 +3,8 @@ from dataclasses import dataclass
 
 from Sorting import (
     BubbleSort,
-    SelectionSort
+    SelectionSort,
+    InsertionSort
 )
 
 class Solutions:
@@ -27,21 +28,32 @@ class Solutions:
     @staticmethod
     def selection_sort() -> None:
         # Iterative sort
-            arr = [1, 10, -9, 0, 5, 3]
-            print(f"The give array is: {arr}")
-            SelectionSort.iterative_sort(arr)
-            print(f"The given array after iterative selection sort: {arr}")
-            print()
-    
-            # Recursive sort
-            arr = [1, 10, -9, 0, 5, 3]
-            print(f"The given array is: {arr}")
-            SelectionSort.recursive_sort(arr)
-            print(f"The given array after recursive selection sort: {arr}")
+        arr = [1, 10, -9, 0, 5, 3]
+        print(f"The give array is: {arr}")
+        SelectionSort.iterative_sort(arr)
+        print(f"The given array after iterative selection sort: {arr}")
+        print()
+
+        # Recursive sort
+        arr = [1, 10, -9, 0, 5, 3]
+        print(f"The given array is: {arr}")
+        SelectionSort.recursive_sort(arr)
+        print(f"The given array after recursive selection sort: {arr}")
 
     @staticmethod
     def insertion_sort() -> None:
-        pass
+        # Iterative sort
+        arr = [1, 10, -9, 0, 5, 3]
+        print(f"The give array is: {arr}")
+        InsertionSort.iterative_sort(arr)
+        print(f"The given array after iterative insertion sort: {arr}")
+        print()
+
+        # Recursive sort
+        arr = [1, 10, -9, 0, 5, 3]
+        print(f"The given array is: {arr}")
+        InsertionSort.recursive_sort(arr)
+        print(f"The given array after recursive insertion sort: {arr}")
 
     @staticmethod
     def merge_sort() -> None:

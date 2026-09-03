@@ -78,7 +78,40 @@ class Solutions {
         }
 
         public static void insertionSort() {
+                // Iterative Sort
+                {
+                        int[] arr = {10, -1, 9, 8, 11, 4, 0};
 
+                        System.out.printf(
+                                "The given array is: %s\n",
+                                Utility.arrayString(arr)
+                        );
+
+                        InsertionSort.iterative_sort(arr);
+
+                        System.out.printf(
+                                "The array after iterative insertion sort: %s\n",
+                                Utility.arrayString(arr)
+                        );
+                }
+                System.out.println();
+
+                // Recursive Sort
+                {
+                        int[] arr = {10, -1, 9, 8, 11, 4, 0};
+
+                        System.out.printf(
+                                "The given array is: %s\n",
+                                Utility.arrayString(arr)
+                        );
+
+                        InsertionSort.recursive_sort(arr);
+
+                        System.out.printf(
+                                "The array after recursive insertion sort: %s\n",
+                                Utility.arrayString(arr)
+                        );
+                }
         }
 
         public static void mergeSort() {
