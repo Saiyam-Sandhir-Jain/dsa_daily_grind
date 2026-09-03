@@ -1,32 +1,44 @@
+from .utility import swap
+
+
 class BubbleSort:
 
     @staticmethod
-    def __bubble_pass(arr: list[int], end: int) -> bool:
-        swapped = False
+    def iterative_sort(arr: list[int]) -> None:
+        if len(arr) <= 1:
+            return
 
-        for j in range(end):
-            if arr[j] > arr[j + 1]:
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
-                swapped = True
+        for end in range(len(arr), 1, -1):
+            swapped = False
 
-        return swapped
+            for i in range(1, end):
+                if arr[i] < arr[i - 1]:
+                    swap(arr, i, i - 1)
+                    swapped = True
+
+            if not swapped:
+                break
 
     @staticmethod
-    def __recursive_sort(arr: list[int], end: int) -> None:
-        if end <= 0:
+    def __recursive_func(arr: list[int], end: int) -> None:
+        if end <= 1:
             return
 
-        if not BubbleSort.__bubble_pass(arr, end):
+        swapped = False
+
+        for i in range(1, end):
+            if arr[i] < arr[i - 1]:
+                swap(arr, i, i - 1)
+                swapped = True
+
+        if not swapped:
             return
 
-        BubbleSort.__recursive_sort(arr, end - 1)
+        BubbleSort.__recursive_func(arr, end - 1)
 
     @staticmethod
     def recursive_sort(arr: list[int]) -> None:
-        BubbleSort.__recursive_sort(arr, len(arr) - 1)
+        if len(arr) <= 1:
+            return
 
-    @staticmethod
-    def iterative_sort(arr: list[int]) -> None:
-        for end in range(len(arr) - 1, 0, -1):
-            if not BubbleSort.__bubble_pass(arr, end):
-                return
+        BubbleSort.__recursive_func(arr, len(arr))

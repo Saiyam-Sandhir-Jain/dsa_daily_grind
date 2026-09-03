@@ -1,15 +1,43 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 
+from Sorting import (
+    BubbleSort,
+    SelectionSort
+)
+
 class Solutions:
 
     @staticmethod
     def bubble_sort() -> None:
-        pass
+        # Iterative sort
+        arr = [1, 10, -9, 0, 5, 3]
+        print(f"The give array is: {arr}")
+        BubbleSort.iterative_sort(arr)
+        print(f"The given array after iterative bubble sort: {arr}")
+        print()
+
+        # Recursive sort
+        arr = [1, 10, -9, 0, 5, 3]
+        print(f"The given array is: {arr}")
+        BubbleSort.recursive_sort(arr)
+        print(f"The given array after recursive bubble sort: {arr}")
+        
 
     @staticmethod
     def selection_sort() -> None:
-        pass
+        # Iterative sort
+            arr = [1, 10, -9, 0, 5, 3]
+            print(f"The give array is: {arr}")
+            SelectionSort.iterative_sort(arr)
+            print(f"The given array after iterative selection sort: {arr}")
+            print()
+    
+            # Recursive sort
+            arr = [1, 10, -9, 0, 5, 3]
+            print(f"The given array is: {arr}")
+            SelectionSort.recursive_sort(arr)
+            print(f"The given array after recursive selection sort: {arr}")
 
     @staticmethod
     def insertion_sort() -> None:
@@ -25,6 +53,7 @@ class Solutions:
 
 @dataclass
 class Section:
+
     title: str
     action: Callable[[], None]
 

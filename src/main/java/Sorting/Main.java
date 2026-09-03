@@ -1,8 +1,80 @@
 package main.java.Sorting;
 
+
 class Solutions {
         public static void bubbleSort() {
+                // Iterative Sort
+                {
+                        int[] arr = {10, -1, 9, 8, 11, 4, 0};
 
+                        System.out.printf(
+                                "The given array is: %s\n",
+                                Utility.arrayString(arr)
+                        );
+
+                        BubbleSort.iterative_sort(arr);
+
+                        System.out.printf(
+                                "The array after iterative bubble sort: %s\n",
+                                Utility.arrayString(arr)
+                        );
+                }
+                System.out.println();
+
+                // Recursive Sort
+                {
+                        int[] arr = {10, -1, 9, 8, 11, 4, 0};
+
+                        System.out.printf(
+                                "The given array is: %s\n",
+                                Utility.arrayString(arr)
+                        );
+
+                        BubbleSort.recursive_sort(arr);
+
+                        System.out.printf(
+                                "The array after recursive bubble sort: %s\n",
+                                Utility.arrayString(arr)
+                        );
+                }
+
+        }
+
+        public static void selectionSort() {
+                // Iterative Sort
+                {
+                        int[] arr = {10, -1, 9, 8, 11, 4, 0};
+
+                        System.out.printf(
+                                "The given array is: %s\n",
+                                Utility.arrayString(arr)
+                        );
+
+                        SelectionSort.iterative_sort(arr);
+
+                        System.out.printf(
+                                "The array after iterative selection sort: %s\n",
+                                Utility.arrayString(arr)
+                        );
+                }
+                System.out.println();
+
+                // Recursive Sort
+                {
+                        int[] arr = {10, -1, 9, 8, 11, 4, 0};
+
+                        System.out.printf(
+                                "The given array is: %s\n",
+                                Utility.arrayString(arr)
+                        );
+
+                        SelectionSort.recursive_sort(arr);
+
+                        System.out.printf(
+                                "The array after recursive selection sort: %s\n",
+                                Utility.arrayString(arr)
+                        );
+                }
         }
 
         public static void insertionSort() {
@@ -14,10 +86,6 @@ class Solutions {
         }
 
         public static void quickSort() {
-
-        }
-
-        public static void selectionSort() {
 
         }
 }
